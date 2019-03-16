@@ -30,6 +30,7 @@ public class LoggerAspect {
     loggerRepository.save(loggerEntity);
   }
 
+  //
   @AfterThrowing(pointcut = "@annotation(com.bhavya.springaop.aop.Logger)", throwing = "error")
   public void afterThrowingMethod(JoinPoint joinPoint, Throwable error) {
     MethodSignature signature = (MethodSignature) joinPoint.getSignature();
