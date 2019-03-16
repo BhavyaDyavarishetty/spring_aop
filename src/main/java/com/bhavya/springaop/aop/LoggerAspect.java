@@ -29,8 +29,7 @@ public class LoggerAspect {
     LoggerEntity loggerEntity = loggerEntityConvertor.convert(result.toString(), methodName, className, LoggerTypeEnum.LOG);
     loggerRepository.save(loggerEntity);
   }
-
-  //
+  
   @AfterThrowing(pointcut = "@annotation(com.bhavya.springaop.aop.Logger)", throwing = "error")
   public void afterThrowingMethod(JoinPoint joinPoint, Throwable error) {
     MethodSignature signature = (MethodSignature) joinPoint.getSignature();
