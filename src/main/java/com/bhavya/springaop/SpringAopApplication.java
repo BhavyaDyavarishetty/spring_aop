@@ -13,7 +13,7 @@ import java.sql.*;
 @EnableWebMvc
 public class SpringAopApplication {
 
-  private static String CREATE_STATEMENT_LOGGER = "create table logger(id integer, details varchar(500), method varchar(50), class_name varchar(50), action_date DATE)";
+  private static String CREATE_STATEMENT_LOGGER = "create table logger(id integer, type varchar(20), details varchar(500), method varchar(50), class_name varchar(50), action_date DATE)";
   private static String CREATE_STATEMENT_USER = "create table user(id integer, name varchar(50), city varchar(50), country varchar(50))";
 
   @Value("${spring.datasource.username}")

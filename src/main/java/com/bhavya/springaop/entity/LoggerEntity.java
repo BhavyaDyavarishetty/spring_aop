@@ -16,6 +16,9 @@ public class LoggerEntity {
   private Integer id;
 
   @Basic
+  private String type;
+
+  @Basic
   private String details;
 
   @Basic
