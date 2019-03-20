@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -17,8 +19,9 @@ public class UserService {
 
   @Logger
   public UserEntity getUser(Integer id) throws ObjectNotFoundException {
-    if(userRepository.findById(id).isPresent()){
-      return userRepository.findById(id).get();
+    Optional<UserEntity> userEntity = userRepository.findById(id);
+    if(userEntity.isPresent()){
+      return userEntity.get();
     }
     throw new ObjectNotFoundException("User is not found for id " +id);
   }
