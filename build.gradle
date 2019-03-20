@@ -14,14 +14,6 @@ repositories {
 	mavenCentral()
 }
 
-bootJar {
-	baseName = 'spring-aop'
-	version =  '0.1.0'
-}
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-aop'
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
