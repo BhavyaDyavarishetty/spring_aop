@@ -1,6 +1,6 @@
 package com.bhavya.springaop.aop;
 
-import com.bhavya.springaop.conversion.LoggerEntityConvertor;
+import com.bhavya.springaop.conversion.LoggerEntityConverter;
 import com.bhavya.springaop.dto.LoggerTypeEnum;
 import com.bhavya.springaop.entity.LoggerEntity;
 import com.bhavya.springaop.repository.LoggerRepository;
@@ -18,7 +18,7 @@ public class LoggerAspect {
 
   @Autowired private LoggerRepository loggerRepository;
 
-  @Autowired private LoggerEntityConvertor loggerEntityConvertor;
+  @Autowired private LoggerEntityConverter loggerEntityConverter;
 
   @AfterReturning(pointcut = "@annotation(com.bhavya.springaop.aop.Logger)", returning = "result")
   public void afterReturnMethod(JoinPoint joinPoint, Object result) {
@@ -26,7 +26,7 @@ public class LoggerAspect {
     String methodName =  signature.getMethod().getName();
     String className = signature.getMethod().getDeclaringClass().getName();
 
-    LoggerEntity loggerEntity = loggerEntityConvertor.convert(result.toString(), methodName, className, LoggerTypeEnum.LOG);
+    LoggerEntity loggerEntity = loggerEntityConverter.convert(result.toString(), methodName, className, LoggerTypeEnum.LOG);
     loggerRepository.save(loggerEntity);
   }
   
@@ -36,7 +36,7 @@ public class LoggerAspect {
     String methodName =  signature.getMethod().getName();
     String className = signature.getMethod().getDeclaringClass().getName();
 
-    LoggerEntity loggerEntity = loggerEntityConvertor.convert(error.getMessage(), methodName, className,
+    LoggerEntity loggerEntity = loggerEntityConverter.convert(error.getMessage(), methodName, className,
         LoggerTypeEnum.ERROR);
     loggerRepository.save(loggerEntity);
   }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-public class LoggerEntityConvertor {
+public class LoggerEntityConverter {
 
   public LoggerEntity convert(String details, String methodName, String className, LoggerTypeEnum type){
 

@@ -6,7 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserEntityConvertor {
+public class UserEntityConverter {
 
   public UserEntity convert(User user){
     UserEntity userEntity = new UserEntity();

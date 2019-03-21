@@ -1,7 +1,7 @@
 package com.bhavya.springaop.service;
 
 import com.bhavya.springaop.aop.Logger;
-import com.bhavya.springaop.conversion.UserEntityConvertor;
+import com.bhavya.springaop.conversion.UserEntityConverter;
 import com.bhavya.springaop.dto.User;
 import com.bhavya.springaop.entity.UserEntity;
 import com.bhavya.springaop.exception.ObjectNotFoundException;
@@ -17,7 +17,7 @@ public class UserService {
 
   @Autowired private UserRepository userRepository;
 
-  @Autowired private UserEntityConvertor userEntityConvertor;
+  @Autowired private UserEntityConverter userEntityConverter;
 
   @Logger
   public UserEntity getUser(Integer id) throws ObjectNotFoundException {
@@ -30,6 +30,6 @@ public class UserService {
 
   @Transactional
   public void createUser(User user) {
-    userRepository.save(userEntityConvertor.convert(user));
+    userRepository.save(userEntityConverter.convert(user));
   }
 }
